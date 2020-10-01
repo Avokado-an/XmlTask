@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.example.com/flowers"
+        targetNamespace="http://www.example.com/flowers"
+        elementFormDefault="qualified"
+        xmlns:c="http://www.example.com/flowers">
+    <complexType name="VoucherType">
+        <sequence>
+            <element name="transport" type="c:transport"/>
+            <element name="hotel" type="c:hotel"/>
+        </sequence>
+        <attribute name="id" type="ID" use="required"/>
+        <attribute name="title" type="string" use="required"/>
+        <attribute name="country" type="string" use="required"/>
+        <attribute name="date" type="gYear" default="08.09.2020"/>
+        <attribute name="number-of-days" type="positiveInteger"/>
+        <attribute name="cost" type="positiveInteger"/>
+    </complexType>
+
+    <simpleType name="transport">
+        <restriction base="string">
+            <enumeration value="bus"/>
+            <enumeration value="train"/>
+            <enumeration value="plane"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="hotel">
+        <attribute name="stars" type="positiveInteger" default="3"/>
+        <attribute name="food" type="c:food-type"/>
+        <attribute name="has-TV" type="boolean" default="true"/>
+        <attribute name="has-Conditioner" type="boolean" default="true"/>
+        <attribute name="amount-of-beds" type="positiveInteger" default="2" use="required"/>
+    </complexType>
+
+    <simpleType name="food-type">
+        <restriction base="string">
+            <enumeration value="HB"/>
+            <enumeration value="BB"/>
+            <enumeration value="AL"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="WeekendVoucherType">
+        <complexContent>
+            <extension base="c:VoucherType">
+                <attribute name="is-healing" type="boolean" default="false"/>
+                <attribute name="is-connected-to-holidays" type="boolean" default="false"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="ExtremeTourismVoucherType">
+        <complexContent>
+            <restriction base="c:VoucherType">
+                <attribute name="does-contain-insurance" type="boolean" default="false"/>
+                <attribute name="level-of-danger" type="positiveInteger" default="5"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+
+    <complexType name="ExcursionVoucherType">
+        <complexContent>
+            <restriction base="c:VoucherType">
+                <attribute name="is-with-guide" type="boolean" default="false"/>
+                <attribute name="amount-of-sightseeing" type="positiveInteger" default="3"/>
+                <attribute name="length-of-excursion" type="positiveInteger" default="2"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+
+    <element name="BasicVoucher" type="c:VoucherType" abstract="true"/>
+
+    <element name="ExtremeVoucher" type="c:ExtremeTourismVoucherType" substitutionGroup="c:BasicVoucher"/>
+
+    <element name="ExcursionVoucher" type="c:ExcursionVoucherType" substitutionGroup="c:BasicVoucher"/>
+
+    <element name="WeekendVoucher" type="c:WeekendVoucherType" substitutionGroup="c:BasicVoucher"/>
+
+    <element name="TouristVouchers">
+        <complexType>
+            <sequence>
+                <element ref="c:BasicVoucher" minOccurs="2" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

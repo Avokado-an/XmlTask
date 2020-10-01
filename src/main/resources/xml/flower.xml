@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vouchers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.example.com/flowers"
+          xsi:schemaLocation="http://www.example.com/flowers flower.xsd">
+
+    <WeekendVoucher transport="bus">
+        <hotel food-type="HB">
+            <stars>3</stars>
+            <has-TV>true</has-TV>
+            <has-Conditioner>true</has-Conditioner>
+            <amount-of-beds>1</amount-of-beds>
+        </hotel>
+        <id>1</id>
+        <title>ASD</title>
+        <country>China</country>
+        <number-of-days>2</number-of-days>
+        <cost>150</cost>
+        <is-healing>false</is-healing>
+        <is-connected-to-holiday>false</is-connected-to-holiday>
+    </WeekendVoucher>
+
+    <ExcursionVoucher>
+        <hotel food-type="BB">
+            <stars>4</stars>
+            <has-TV>true</has-TV>
+            <has-Conditioner>true</has-Conditioner>
+            <amount-of-beds>2</amount-of-beds>
+        </hotel>
+        <id>2</id>
+        <title>ASDF</title>
+        <country>Italy</country>
+        <number-of-days>10</number-of-days>
+        <cost>350</cost>
+        <is-with-guide>true</is-with-guide>
+        <amount-of-sightseeing>false</amount-of-sightseeing>
+    </ExcursionVoucher>
+
+    <ExtremeVoucher>
+        <hotel food-type="AL">
+            <stars>2</stars>
+            <has-TV>true</has-TV>
+            <has-Conditioner>false</has-Conditioner>
+            <amount-of-beds>3</amount-of-beds>
+        </hotel>
+        <id>3</id>
+        <title>ASDFG</title>
+        <country>Hungary</country>
+        <number-of-days>5</number-of-days>
+        <cost>270</cost>
+        <does-contain-insurance>true</does-contain-insurance>
+        <level-of-danger>4</level-of-danger>
+    </ExtremeVoucher>
+
+    <WeekendVoucher>
+        <hotel food-type="HB">
+            <stars>3</stars>
+            <has-TV>true</has-TV>
+            <has-Conditioner>true</has-Conditioner>
+            <amount-of-beds>3</amount-of-beds>
+        </hotel>
+        <id>4</id>
+        <title>ASDFGH</title>
+        <country>England</country>
+        <number-of-days>3</number-of-days>
+        <cost>250</cost>
+        <is-healing>false</is-healing>
+        <is-connected-to-holiday>true</is-connected-to-holiday>
+    </WeekendVoucher>
+</vouchers>
